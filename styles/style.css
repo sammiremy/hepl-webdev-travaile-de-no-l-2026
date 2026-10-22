@@ -1,0 +1,172 @@
+:root{
+    --bg-solid: #f4e9d8;
+    --bg: #f4e9d8;
+    --text-color: #5a2a2f;
+    --accent: #a4243b;
+    --font-title: "Dancing Script", cursive;
+    --font-text: "Cormorant Garamond", serif;
+}
+body{
+    margin: 0;
+    min-height: 100vh;
+    background: var(--bg);
+    font-family: var(--font-text);
+}
+
+main{
+    display: grid;
+    justify-content: center;
+    text-align: center;
+}
+
+article{
+    padding: 80px 20px;
+    display: grid;
+    justify-items: center;
+    text-align: center;
+}
+
+article h1{
+    font-family: var(--font-text);
+    font-size: 4em;
+    font-weight: 600;
+    margin: 0 0 40px;
+    color: var(--accent);
+}
+
+p{
+    margin: 0;
+    color: var(--text-color);
+}
+
+article p{
+    font-size: 2em;
+    line-height: 1.6;
+    max-width: 700px;       
+    min-height: 6em;        
+}
+
+nav{
+    padding: 16px;
+    text-align: center;
+    background: transparent;
+    border-bottom: 1px solid var(--accent);
+}
+nav p{ font-size: 1em; letter-spacing: 3px; text-transform: uppercase; }
+
+/* Apparition mot par mot, avec une légère montée */
+.word{
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(8px);
+    animation: fadeIn 1s forwards;
+}
+@keyframes fadeIn{
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Champ dans le texte */
+.userInputInText{
+    background: none;
+    border: none;
+    border-bottom: 2px solid var(--accent);
+    outline: none;
+    font: inherit;
+    color: var(--accent);
+    field-sizing: content;
+    min-width: 1ch;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+.userInputInText::placeholder{
+    color: var(--text-color);
+    opacity: 0.4;
+}
+.userInputInText:focus{
+    border-bottom-color: var(--text-color);
+}
+/* select user */
+.userSelectInText{
+    appearance: none;
+    -webkit-appearance: none;
+    background: none;
+    border: none;
+    border-bottom: 2px solid var(--accent);
+    border-radius: 0;
+    outline: none;
+    font: inherit;
+    color: var(--accent);
+    field-sizing: content;
+    text-align: center;
+    text-align-last: center;   /* centre aussi l'option affichée */
+    padding: 0 0.1em;
+    margin: 0;
+    cursor: pointer;
+}
+.userSelectInText:focus{
+    border-bottom-color: var(--text-color);
+}
+.userSelectInText:invalid{     /* utile si la 1re option est le placeholder (value="") */
+    color: var(--text-color);
+    opacity: 0.4;
+}
+.userSelectInText option{
+    background: var(--bg-solid);
+    color: var(--text-color);
+    font-family: var(--font-text);
+}
+
+/* Bouton */
+button{
+    margin-top: 50px;
+    padding: 12px 36px;
+    font-family: var(--font-text);
+    font-size: 1.2em;
+    letter-spacing: 2px;
+    color: var(--text-color);
+    background: transparent;
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+button:hover:not(:disabled){
+    background: var(--accent);
+    color: var(--bg-solid);
+}
+button:disabled{
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+/* Row for the generated choice buttons */
+.choices{
+    display: flex;
+    flex-wrap: nowrap;        /* always a single row */
+    justify-content: center;
+    gap: 50px;
+    margin-top: 50px;
+    width: 100%;
+    max-width: 900px;
+    box-sizing: border-box;
+}
+
+/* Only affects buttons inside .choices, overriding what it inherits from `button` */
+.choices button{
+    margin-top: 0;            /* the spacing comes from .choices */
+    flex: 0 1 auto;           /* can shrink so 3-4 buttons fit */
+    min-width: 0;
+    padding: 12px 24px;
+}
+
+@media (max-width: 600px){
+    .choices{ gap: 8px; }
+    .choices button{
+        padding: 10px 14px;
+        font-size: 1em;
+        letter-spacing: 1px;
+    }
+}
+
+
