@@ -1,2 +1,2 @@
-# hepl-webdev-travaile-de-no-l-2026
-ce répertoir sers à archiver l'état d'avancement de mon projet de fin d'anneé à l'école hepl. Le projet est une petit historie d'on vous êtes le héro réalisé en html/css et java script
+# hepl-webdev-travaile-de-noel-2026
+Ce répertoire sert à archiver l’état d’avancement de mon projet de fin d’année à la HEPL. Le projet est une petite histoire dont vous êtes le héros, réalisée en HTML/CSS et JavaScript.
