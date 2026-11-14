@@ -1,6 +1,5 @@
 :root{
     --bg-solid: #f4e9d8;
-    --bg: #f4e9d8;
     --text-color: #5a2a2f;
     --accent: #a4243b;
     --font-title: "Dancing Script", cursive;
@@ -9,7 +8,7 @@
 body{
     margin: 0;
     min-height: 100vh;
-    background: var(--bg);
+    background: #f4e9d8;
     font-family: var(--font-text);
 }
 
@@ -18,7 +17,7 @@ main{
     justify-content: center;
     text-align: center;
 }
-
+/* the article is where the content of the story and choice will be displayed */
 article{
     padding: 80px 20px;
     display: grid;
@@ -28,33 +27,36 @@ article{
 
 article h1{
     font-family: var(--font-text);
+    color: var(--accent);
     font-size: 4em;
     font-weight: 600;
-    margin: 0 0 40px;
-    color: var(--accent);
+    margin: 0 0 40px 0;
 }
 
 p{
     margin: 0;
     color: var(--text-color);
-}
-
-article p{
     font-size: 2em;
     line-height: 1.6;
     max-width: 700px;       
-    min-height: 6em;        
+    min-height: 6em;   
 }
 
+
 nav{
-    padding: 16px;
-    text-align: center;
+    display: flex;
+    justify-content: center;
     background: transparent;
     border-bottom: 1px solid var(--accent);
 }
-nav p{ font-size: 1em; letter-spacing: 3px; text-transform: uppercase; }
+nav p{ 
 
-/* Apparition mot par mot, avec une légère montée */
+    font-size: 1em; 
+    letter-spacing: 3px;
+    align-content: center;
+}
+
+/* this class is to make word apear one by one with a small animation  */
 .word{
     display: inline-block;
     opacity: 0;
@@ -65,19 +67,16 @@ nav p{ font-size: 1em; letter-spacing: 3px; text-transform: uppercase; }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Champ dans le texte */
-.userInputInText{
+/* user input  */
+.userInputInText {
     background: none;
     border: none;
-    border-bottom: 2px solid var(--accent);
+    border-bottom: 2px solid #a4243b;
     outline: none;
     font: inherit;
-    color: var(--accent);
-    field-sizing: content;
-    min-width: 1ch;
+    color: #a4243b;
     text-align: center;
-    padding: 0;
-    margin: 0;
+    field-sizing: content;
 }
 .userInputInText::placeholder{
     color: var(--text-color);
